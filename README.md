@@ -7,11 +7,11 @@ Azure-Virtual-Desktop setup for Hybrid users.
 
 
 
-**Create VNETS and SNETS for AVD environment**
-Here we are creating virtual network and subnets for AVD setup.
-fb-avd-poc-vnet (VNET) - 10.2.0.0/24
-snet-fb-poc-infra (SNET) - 10.2.0.0/26
-snet-fb-poc-prod (SNET) – 10.2.0.128/25
+**Create VNETS and SNETS for AVD environment**<br>
+Here we are creating virtual network and subnets for AVD setup.<br>
+fb-avd-poc-vnet (VNET) - 10.2.0.0/24<br>
+snet-fb-poc-infra (SNET) - 10.2.0.0/26<br>
+snet-fb-poc-prod (SNET) – 10.2.0.128/25<br>
 
 ![image](https://github.com/user-attachments/assets/6f40f71e-65c5-4d5f-b17d-2df5cda5eb00)
  
