@@ -14,12 +14,7 @@ snet-fb-poc-infra (SNET) - 10.2.0.0/26
 snet-fb-poc-prod (SNET) – 10.2.0.128/25
 ![image](https://github.com/user-attachments/assets/6f40f71e-65c5-4d5f-b17d-2df5cda5eb00)
  
-
-
-
- 
-
-
+![image](https://github.com/user-attachments/assets/e493ba6d-0c71-4bb4-a30e-45d131a95aea)
 
 
 
