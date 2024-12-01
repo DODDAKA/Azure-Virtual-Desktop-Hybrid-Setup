@@ -5,6 +5,9 @@ Azure-Virtual-Desktop setup for Hybrid users.
 
                                                             Azure Virtual Desktop POC
 
+![image](https://github.com/user-attachments/assets/6c5c952e-b05d-4e13-a61e-c1fa63dc49ff)
+
+![image](https://github.com/user-attachments/assets/d808e6db-8c5d-4199-a52c-e1e580453d01)
 
 
 #########**Create VNETS and SNETS for AVD environment**###############<br>
