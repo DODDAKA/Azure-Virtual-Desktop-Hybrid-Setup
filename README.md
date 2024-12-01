@@ -7,7 +7,7 @@ Azure-Virtual-Desktop setup for Hybrid users.
 
 
 
-**Create VNETS and SNETS for AVD environment**<br>
+#########**Create VNETS and SNETS for AVD environment**###############<br>
 
 Here we are creating virtual network and subnets for AVD setup.<br>
 fb-avd-poc-vnet (VNET) - 10.2.0.0/24<br>
@@ -19,8 +19,7 @@ snet-fb-poc-prod (SNET) – 10.2.0.128/25<br>
 ![image](https://github.com/user-attachments/assets/e493ba6d-0c71-4bb4-a30e-45d131a95aea)
 
 
-#########################################################################
-**Create Azure VM and install AD DS role. And promote as Domain controller.**  <br>
+#######**Create Azure VM and install AD DS role. And promote as Domain controller.** #######<br>
 <br>
 1.Go to Azure portal and create a basic VM which represents as Domain controller. Here I am taking windows server 2019 with basic configuration.<br>
 ![image](https://github.com/user-attachments/assets/56f86b4d-d241-4dda-88ad-d04633ce8bb0)
