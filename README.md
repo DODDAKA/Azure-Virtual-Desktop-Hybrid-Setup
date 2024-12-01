@@ -8,6 +8,7 @@ Azure-Virtual-Desktop setup for Hybrid users.
 
 
 **Create VNETS and SNETS for AVD environment**<br>
+
 Here we are creating virtual network and subnets for AVD setup.<br>
 fb-avd-poc-vnet (VNET) - 10.2.0.0/24<br>
 snet-fb-poc-infra (SNET) - 10.2.0.0/26<br>
@@ -18,43 +19,55 @@ snet-fb-poc-prod (SNET) – 10.2.0.128/25<br>
 ![image](https://github.com/user-attachments/assets/e493ba6d-0c71-4bb4-a30e-45d131a95aea)
 
 
-
-**Create Azure VM and install AD DS role. And promote as Domain controller.**<br>
+#########################################################################
+**Create Azure VM and install AD DS role. And promote as Domain controller.**  <br>
+<br>
 1.Go to Azure portal and create a basic VM which represents as Domain controller. Here I am taking windows server 2019 with basic configuration.<br>
+<br>
 ![image](https://github.com/user-attachments/assets/56f86b4d-d241-4dda-88ad-d04633ce8bb0)
+<br>
 ![image](https://github.com/user-attachments/assets/4ef99ebc-cdc3-451e-b6cf-5a1077d8e990)
-
+<br>
 
 2. Go to virtual network and add custom DNS.<br>
 Here we are adding private IP address of Domain controller VM on VNET DNS server settings. So that, all the servers in that VNETS knows about DNS server.<br>
+<br>
  ![image](https://github.com/user-attachments/assets/ce381d05-a5c1-46ab-82e2-591137c75088)
-
+<br>
 
 **Deploy Domain controller then add Domain and users on DC server.**<br>
 1. Now login into Domain controller VM which we have created previously and install AD DS role on it.<br>
  ![image](https://github.com/user-attachments/assets/b2a51ca9-29ec-4800-b95c-db6000a45fb0)
-
+<br>
 2. Then promote this server as domain controller. While promoting server as Domain controller, enter your domain name by selecting option Add a new forest.<br>
+<br>
  ![image](https://github.com/user-attachments/assets/7dd6327e-1d4d-4518-a548-9e8fc1e9aa53)
-
+<br>
 3. Once you configure everything, it will ask for restart. Then do it accordingly.<br>
 After restart, login into Domain controller. Then in server manager you will see as below.<br>
+<br>
  ![image](https://github.com/user-attachments/assets/e26d3bd9-4ad2-4bc8-8196-9b7d7ce4a7be)
-
+<br>
 4. Then add users and groups to Active Directory. Here we are creating few users for testing purpose. And we will sync these users to the azure cloud.<br>
+<br>
 ![image](https://github.com/user-attachments/assets/11f59f74-47f8-4074-b580-042af43788b2)
-
+<br>
 5. Giving elevated permissions for single user and make him as Admin user. So that, he can do all operations like domain joining and etc.<br>
 Double click on the user name-> Go to Member of option-> Add below Displayed roles.<br>
+<br>
 ![image](https://github.com/user-attachments/assets/5b70d50e-4742-4de6-956c-751c6f134160)
+<br>
 
 6. Create groups and add users to those respective groups.<br>
 fbavdpoc-admin-group : Here we are adding the user who has elevated permission.<br>
 fbavdpoc-users-group: Here we are adding all the normal users.<br>
 
 Adding users: Double click on group name and go to Members option. And add respective users.<br>
+<br>
  ![image](https://github.com/user-attachments/assets/65705097-a526-4dbd-9882-1cabaa41e050)
+<br>
 ![image](https://github.com/user-attachments/assets/12349d8f-59ea-4897-95d5-cc34d9aea3b0)
+<br>
 
 
 **Install AD Connect and sync users to the cloud**<br>
@@ -62,7 +75,9 @@ Adding users: Double click on group name and go to Members option. And add respe
 
 Here we are using cloudrockadmin user who has global administrator permission on entra id.<br>
 ![image](https://github.com/user-attachments/assets/9ada7e3d-5c3e-4108-bee9-188198522a6c)
+<br>
 ![image](https://github.com/user-attachments/assets/d2c11e3c-a13f-45db-a28d-2e76c1222624)
+<br>
 
 2. On Domain controller server, download Azure AD connect tool.<br>
 This Azure AD connect tool syncs the users to azure cloud. We can get this software from internet which is available for free.<br>
@@ -71,7 +86,9 @@ After installing and running the software. Now, we have to enter Azure could use
  ![image](https://github.com/user-attachments/assets/db058896-2a25-48de-99aa-a4f07b0a4ecf)
 
 After clicking next in previous step, now enter the AD DS enterprise administrator credentials as in below format.<br>
+<br>
 ![image](https://github.com/user-attachments/assets/2e1b694b-49b3-4536-b3a3-aaa4136b8287)
+<br>
  ![image](https://github.com/user-attachments/assets/cfc6ce19-429d-4e33-acbd-78fd66056f17)
 
 After complete installation. We will the confirmation as below.<br>
@@ -79,8 +96,11 @@ After complete installation. We will the confirmation as below.<br>
 
 3. Now go to Azure portal-> Entra ID-> Users.<br>
 We can see on premises Active Directory users and groups are synced to cloud successfully.<br>
+<br>
  ![image](https://github.com/user-attachments/assets/7969a611-f94c-468b-a485-4b0328ab071a)
+<br>
 ![image](https://github.com/user-attachments/assets/70542722-c00e-4cf5-b630-fec53c669607)
+<br>
 
 **Create storage account and File share in Azure portal**<br>
 1.Create a storage account with basic configuration.
